@@ -1,0 +1,82 @@
+
+buildscript {
+    ext.kotlin_version = '0.6.1910'
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath group: 'org.jetbrains.kotlin', name: 'kotlin-gradle-plugin', version: ext.kotlin_version
+    }
+}
+
+apply plugin: 'kotlin'
+apply plugin: 'maven'
+apply plugin: 'signing'
+
+group = 'com.anyaku'
+version = '0.1-SNAPSHOT'
+ext.packaging = 'jar'
+
+repositories {
+    mavenCentral()
+}
+dependencies {
+    compile group: 'org.jetbrains.kotlin', name: 'kotlin-stdlib', version: ext.kotlin_version
+    compile(group: 'com.googlecode.json-simple', name: 'json-simple', version: '1.1.1') {
+        exclude group: 'junit', module: 'junit'
+    }
+    testCompile group: 'junit', name: 'junit', version: '4.11'
+}
+
+task unitTest(type: Test, dependsOn: testClasses) {
+    include 'com/anyaku/test/unit/**/*'
+    testLogging {
+        events 'passed'
+        exceptionFormat 'full'
+    }
+}
+
+task testJar(type: Jar, dependsOn: testClasses) {
+    classifier = 'tests'
+    from sourceSets.test.output
+}
+
+artifacts {
+    archives jar
+    archives testJar
+}
+
+uploadArchives {
+    repositories {
+        mavenDeployer {
+            name = 'Sonatype OSS'
+            repository(url: 'https://oss.sonatype.org/content/repositories/snapshots') {
+                authentication userName: sonatypeUsername, password: sonatypePassword
+            }
+
+            pom.project {
+                name 'Encrypted Profile Documents'
+                url 'http://developer.anyaku.com'
+                licenses {
+                    license {
+                        name 'GNU Lesser General Public License, Version 3.0'
+                        url 'http://www.gnu.org/licenses/lgpl-3.0.html'
+                        distribution 'repo'
+                    }
+                }
+                developers {
+                    developer {
+                        id 'phifty'
+                        name 'Philipp Brüll'
+                        email 'bruell@simiatech.com'
+                    }
+                }
+                scm {
+                    connection 'scm:git:git://github.com/simia-tech/epd-kotlin.git'
+                    developerConnection 'scm:git:git@github.com:simia-tech/epd-kotlin.git'
+                    url 'https://github.com/simia-tech/epd-kotlin'
+                }
+            }
+        }
+    }
+}

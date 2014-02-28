@@ -1,0 +1,6 @@
+
+* the CryptoJS PBKDF2 algorithm takes all words of the result and uses them as
+  encryption key. only the significant bytes should be used.
+
+* symmetric encryption is done by base64 the key and derive another key and iv from
+  it. this step could be skipped.

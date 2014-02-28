@@ -1,0 +1,29 @@
+{
+  "id": "001a15084ebbbafbd99d4784fe329008",
+  "publicKey": "AAAAAEKsBbh7pzAus3sLo+c+/f58fIbykE5+SwjrkjBdqC0qZZ39cEloOgyRP+eY/2WG81k6BjH7gEGD1RXZ6eERTDp0AAAABAAAAAw==",
+  "privateKey": {
+    "encrypted": "EU2FsdGVkX18MSg1vAotn2F4jD1TrB8cN8ezm8byLS7kX6p7ovneF2MWbqpyJVbnrLBo2BklD9CPVxhaej92sfb2r6hcIxe2//WESBwQCXfN3mmZLxxTAx8cUXzX0xaRdqsJXrJ6I/s9o4m+adebYHJtnJKuk967Yrch29991mjUHbX5akio6eneEsw9OGR2j8toVGDzCJ1rZlJEkUBAatbaJ3ymaIhUsEjFsWbiwkCnlMUE/AZBRdRIrWY7N8DPSRn+E+3zWvi5GfXqx7hQWkA==",
+    "salt": "FNt7wQ7Cb7YVTIWaNGZJeoQ==",
+    "keySize": 5,
+    "iterations": 1000
+  },
+  "version": 1,
+  "contacts": {
+    "001a15084ebbbafbd99d4784fe329008": {
+      "keys": "GB2aca433dc8e2da03c57bd3981e4a0c146d4531788f4abe1ff668b9bb7aa8c632a2cba260ec36fd11f9009e89ee6d9d1cb99b5526315d94f0709ca6c439fe4673|EU2FsdGVkX18lIwxemDa5HYbd5ryJ6U7e4Px/nZbncIV1xTeGFGYPAu5Bz+fH/8airiNENVAXo1MTksY9D4jz0Q=="
+    }
+  },
+  "sections": {
+    "open": {
+      "modules": {
+        "build_in:com.anyaku.Basic": {
+          "content": {
+
+          }
+        }
+      }
+    },
+    "closed": "EU2FsdGVkX19IZLyfmQ65PpqF5yI4fAZNIx1w2oHo7Ic="
+  },
+  "signature": "CYhyojd9q4ACSXnnMY/BBwjDsEPbeQ6gRQQ3f/3Cs7gql1Ros7lvlPw5KaN+A1FCoNPnya3odAk8aZLhOPvL9UA=="
+}
